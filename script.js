@@ -71,6 +71,15 @@ window.onload = function() {
     // Change background color
     const randomColor = getRandomColor();
     document.body.style.backgroundColor = randomColor;
+
+    document.getElementById("refreshButton").addEventListener("click", function() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    quoteElement.textContent = quotes[randomIndex];
+
+    const randomColor = getRandomColor();
+    document.body.style.backgroundColor = randomColor;
+});
+
 }
 
 function getRandomColor() {
