@@ -79,6 +79,8 @@ window.onload = function() {
     document.getElementById("refreshButton").addEventListener("click", function() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     quoteElement.textContent = quotes[randomIndex];
+    console.log(quotes[randomIndex]);
+
 
     const randomColor = getRandomColor();
     document.body.style.backgroundColor = randomColor;
