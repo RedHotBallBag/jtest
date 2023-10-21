@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Famous Quote App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="quote-container">
-    <p id="loading">Loading quote...</p>
-    <p id="quote" style="display: none;"></p>
-    <button id="refreshButton">New Quote</button>
-</div>
-</div>
+    <div class="quote-container">
+        <div class="quote-container">
+            <img id="dogImage" src="" alt="Random Dog Image" style="max-width: 100%; height: auto;">
+            <p id="loading">Loading quote...</p>
+            <p id="quote" class="animate__animated animate__fadeIn" style="display: none;"></p>
+            <button id="refreshButton">New Quote</button>
+        </div>
+
     <script src="script.js"></script>
 </body>
 </html>

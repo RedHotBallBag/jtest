@@ -1,45 +1,35 @@
-body, html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Times New Roman', Times, serif;
-    color: white;
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f2f2;
 }
 
 .quote-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-size: 24px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+    padding: 40px;
     border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
-p {
-    margin: 0;
-}
-
-.quote-container p {
-    font-size: 32px; /* Adjust the size as you like */
-    margin-bottom: 20px; /* Spacing between the quote and the button */
+#quote {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 #refreshButton {
-
-    background-color: #ffffff;
-    border: 1px solid #ccc;
     padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 #refreshButton:hover {
-    background-color: #eee;
-}
-
-#quote {
-    font-size: 45px;
+    background-color: #0056b3;
 }

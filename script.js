@@ -62,30 +62,48 @@ const quotes = [
     "You can always find hope in a dog's eyes."
 ];
 
-window.onload = function() {
-    // Display a random quote
+async function fetchDogImage() {
+    const response = await fetch('https://dog.ceo/api/breeds/image/random');
+    const data = await response.json();
+    return data.message;
+}
+
+function changeQuoteAndBackground() {
     const quoteElement = document.getElementById('quote');
     const randomIndex = Math.floor(Math.random() * quotes.length);
     quoteElement.textContent = quotes[randomIndex];
 
-    // Change background color
     const randomColor = getRandomColor();
     document.body.style.backgroundColor = randomColor;
 
+    quoteElement.classList.remove('animate__animated');
+    quoteElement.classList.remove('animate__fadeIn');
+    void quoteElement.offsetWidth;  // This line is necessary to restart the animation
+    quoteElement.classList.add('animate__animated');
+    quoteElement.classList.add('animate__fadeIn');
+}
+
+window.onload = async function() {
     document.getElementById('loading').style.display = 'none';
-    quoteElement.style.display = 'block';
+    document.getElementById('quote').style.display = 'block';
 
+    // Display a random dog image on initial load
+    const dogImageElement = document.getElementById('dogImage');
+    dogImageElement.src = await fetchDogImage();
 
-    document.getElementById("refreshButton").addEventListener("click", function() {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    quoteElement.textContent = quotes[randomIndex];
-    console.log(quotes[randomIndex]);
+    // Display a random quote and background on initial load
+    changeQuoteAndBackground();
+}
 
-    const randomColor = getRandomColor();
-    document.body.style.backgroundColor = randomColor;
+// Set up the button click event listener
+document.getElementById("refreshButton").addEventListener("click", async function() {
+    // Display a new random dog image
+    const dogImageElement = document.getElementById('dogImage');
+    dogImageElement.src = await fetchDogImage();
+    
+    changeQuoteAndBackground();
 });
 
-}
 
 function getRandomColor() {
     function getRandomByte(min, max) {
