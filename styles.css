@@ -21,3 +21,23 @@ body, html {
 p {
     margin: 0;
 }
+
+.quote-container p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px; /* Adjust the size as you like */
+    margin-bottom: 20px; /* Spacing between the quote and the button */
+}
+
+#refreshButton {
+    font-family: 'Dancing Script', cursive;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#refreshButton:hover {
+    background-color: #eee;
+}
+
