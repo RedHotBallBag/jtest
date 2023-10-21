@@ -51,7 +51,7 @@ const quotes = [
     "You want a friend in Washington? Get a dog. - Harry Truman",
     "If dogs could talk, perhaps we would find it as hard to get along with them as we do with people.",
     "The reason a dog has so many friends is that he wags his tail instead of his tongue.",
-    "I'm not alone," said the boy. "I've got a puppy.",
+    "I'm not alone, said the boy, I've got a puppy.",
     "The more people I meet, the more I like my dog.",
     "A dog might destroy your shoes but will never break your heart.",
     "Dogs are wise. They crawl away into a quiet corner and lick their wounds and do not rejoin the world until they are whole once more. - Agatha Christie",
