@@ -88,10 +88,14 @@ window.onload = function() {
 }
 
 function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+    function getRandomByte(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    return color;
+
+    let r = getRandomByte(50, 200);
+    let g = getRandomByte(50, 200);
+    let b = getRandomByte(50, 200);
+
+    return `rgb(${r},${g},${b})`;
 }
+
