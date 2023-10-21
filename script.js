@@ -81,7 +81,6 @@ window.onload = function() {
     quoteElement.textContent = quotes[randomIndex];
     console.log(quotes[randomIndex]);
 
-    document.getElementById('quote').textContent = "Test Quote";
     const randomColor = getRandomColor();
     document.body.style.backgroundColor = randomColor;
 });
