@@ -155,58 +155,56 @@ const quotes = [
     "If there are no dogs in Heaven, then when I die I want to go where they went. - Will Rogers"
 ];
 
-async function fetchDogImage() {
-    const response = await fetch('https://dog.ceo/api/breeds/image/random');
-    const data = await response.json();
-    return data.message;
-}
+$(document).ready(function() {
+    function changeQuoteAndBackground() {
+        const quoteElement = $('#quote');
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        quoteElement.text(quotes[randomIndex]);
 
-function changeQuoteAndBackground() {
-    const quoteElement = document.getElementById('quote');
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    quoteElement.textContent = quotes[randomIndex];
-
-    const randomColor = getRandomColor();
-    document.body.style.backgroundColor = randomColor;
-
-    quoteElement.classList.remove('animate__animated');
-    quoteElement.classList.remove('animate__fadeIn');
-    void quoteElement.offsetWidth;  // This line is necessary to restart the animation
-    quoteElement.classList.add('animate__animated');
-    quoteElement.classList.add('animate__fadeIn');
-}
-
-window.onload = async function() {
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('quote').style.display = 'block';
-
-    // Display a random dog image on initial load
-    const dogImageElement = document.getElementById('dogImage');
-    dogImageElement.src = await fetchDogImage();
-
-    // Display a random quote and background on initial load
-    changeQuoteAndBackground();
-}
-
-// Set up the button click event listener
-document.getElementById("refreshButton").addEventListener("click", async function() {
-    // Display a new random dog image
-    const dogImageElement = document.getElementById('dogImage');
-    dogImageElement.src = await fetchDogImage();
-    
-    changeQuoteAndBackground();
-});
-
-
-function getRandomColor() {
-    function getRandomByte(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+        const randomColor = getRandomColor();
+        $('body').css('background-color', randomColor);
+        
+        quoteElement.removeClass('animate__fadeIn').addClass('animate__fadeIn');
     }
 
-    let r = getRandomByte(50, 200);
-    let g = getRandomByte(50, 200);
-    let b = getRandomByte(50, 200);
+    function getRandomColor() {
+        function getRandomByte(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
 
-    return `rgb(${r},${g},${b})`;
-}
+        let r = getRandomByte(50, 200);
+        let g = getRandomByte(50, 200);
+        let b = getRandomByte(50, 200);
 
+        return `rgb(${r},${g},${b})`;
+    }
+
+    function fetchDogImage() {
+        $.get('https://dog.ceo/api/breeds/image/random', function(data) {
+            if (data.status === 'success') {
+                $('#dogImage').attr('src', data.message);
+            }
+        });
+    }
+
+    function fetchDogFact() {
+        $.get('https://dogapi.dog/api/v2/facts', function(data) {
+            if (data && data.data && data.data[0] && data.data[0].attributes && data.data[0].attributes.body) {
+                const fact = data.data[0].attributes.body;
+                $('#dogFact').text("Quick Dog Fact - " + fact);
+            }
+        });
+    }
+
+    // Initial load
+    fetchDogImage();
+    changeQuoteAndBackground();
+    fetchDogFact();
+
+    // Set up the button click event listener
+    $("#refreshButton").click(function() {
+        fetchDogImage();
+        changeQuoteAndBackground();
+        fetchDogFact();
+    });
+});

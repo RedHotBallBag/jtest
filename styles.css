@@ -1,5 +1,8 @@
+/* Import a new font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif; /* Adding Roboto font */
     transition: background-color 0.5s;
     margin: 0;
     display: flex;
@@ -8,44 +11,66 @@ body {
     height: 100vh;
 }
 
+/* Styling for the quote */
+#quote {
+    font-size: 1.5rem; /* Adjusted the size for better visibility */
+    margin-bottom: 30px; /* Increase spacing */
+    font-weight: 400; /* Regular weight */
+}
+
+/* Styling for the fact */
+#dogFact {
+    font-style: italic;
+    font-size: 1.2rem; /* Slightly smaller than the quote for differentiation */
+    margin-top: 30px; /* Added spacing */
+    font-weight: 300; /* Lighter weight */
+}
+
+
+
 .quote-container {
     text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    max-width: 80%;  /* Ensuring the quote doesn't stretch too wide on large screens */
+    padding: 30px; /* Increased Padding */
+    border-radius: 20px; /* Rounded Corners */
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+    max-width: 90%;
+    background-color: #ffffff;
+    transition: transform .2s; /* Animation for hovering */
 }
 
-#quote {
-    font-size: 1rem;  /* Initial size for small devices */
-    margin-bottom: 20px;
+.quote-container:hover {
+    transform: scale(1.03); /* Slightly scale up when hovering */
 }
+
 
 button {
-    padding: 10px 20px;
-    font-size: 1rem;  /* Initial size for small devices */
+    padding: 10px 25px;
+    font-size: 1rem;
     border: none;
-    background-color: #333;
+    background-color: #6C5B7B; /* Changed color for better contrast with gradient */
     color: #fff;
-    border-radius: 5px;
+    border-radius: 30px; /* Rounded Button */
     cursor: pointer;
+    transition: background-color .3s; /* Transition effect for button hover */
 }
 
-/* Media query for tablets and above */
+button:hover {
+    background-color: #355C7D; /* Button color on hover */
+}
+
 @media (min-width: 768px) {
     #quote {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
     }
     
     button {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
     }
 }
 
-/* Media query for desktops and larger screens */
 @media (min-width: 1024px) {
     #quote {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     button {
@@ -54,8 +79,14 @@ button {
 }
 
 #dogImage {
-    max-width: 100%; /* Ensures the image doesn't stretch beyond its container. */
-    max-height: 50vh; /* Sets the maximum height to 50% of the viewport height. */
+    max-width: 100%;
+    max-height: 300px; /* Setting a max height to ensure larger images are resized */
     display: block;
-    margin: 0 auto 20px; /* Centers the image and adds a margin below it. */
+    margin: 20px auto;
+    border-radius: 0; 
+    object-fit: cover; /* This will ensure that your image covers the defined width and height without distorting the image */
+    width: 300px; /* Define width */
+    height: 300px; /* Define height */
 }
+
+

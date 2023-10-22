@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Dog Quotes New Tab",
+    "version": "1.0",
+    "description": "Displays dog quotes and images on every new tab",
+    "permissions": ["activeTab", "storage"],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["jquery-3.5.1.min.js", "bootstrap.min.js"]
+        }
+    ],
+    "default_popup": "index.html",
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    }
+    
+}

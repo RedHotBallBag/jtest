@@ -3,19 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Famous Quote App</title>
+    <title>Famous Dog Quote App</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Animate.css for animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- Custom CSS (if you have any) -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="quote-container">
-        <div class="quote-container">
-            <img id="dogImage" src="" alt="Random Dog Image" style="max-width: 100%; height: auto;">
-            <p id="loading">Loading quote...</p>
-            <p id="quote" class="animate__animated animate__fadeIn" style="display: none;"></p>
-            <button id="refreshButton">New Quote</button>
-        </div>
 
-    <script src="script.js"></script>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card text-center shadow-lg p-3 mb-5 bg-white rounded">
+        
+        <p id="quote" class="card-text animate__animated animate__fadeIn">Loading quote...</p>
+        <div class="card-body">
+            <img id="dogImage" class="card-img-top mx-auto d-block mt-3" alt="Random dog">
+            <p id="dogFact" class="card-text mt-2"></p> <!-- New line added here -->
+            <button id="refreshButton" class="btn btn-primary">New Quote</button>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery & Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Your JS Script -->
+<script src="script.js"></script>
 </body>
 </html>
